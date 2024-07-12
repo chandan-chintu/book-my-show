@@ -2,6 +2,7 @@ package com.application.demo.book_my_show.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -13,6 +14,7 @@ import java.util.UUID;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class TicketEntity {
 
     @Id
@@ -30,4 +32,13 @@ public class TicketEntity {
     private String theaterName;
 
     private String ticketId = UUID.randomUUID().toString();
+
+    @JoinColumn
+    @ManyToOne
+    private UserEntity userEntity;
+
+    //this is child wrt shows
+    @JoinColumn
+    @ManyToOne
+    private ShowEntity showEntity;
 }

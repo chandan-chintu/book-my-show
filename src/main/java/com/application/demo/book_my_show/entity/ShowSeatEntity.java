@@ -3,6 +3,7 @@ package com.application.demo.book_my_show.entity;
 import com.application.demo.book_my_show.enums.SeatType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -13,6 +14,7 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class ShowSeatEntity {
 
     @Id
@@ -29,5 +31,9 @@ public class ShowSeatEntity {
     private String seatNo;
 
     private Date bookedAt;
+
+    @JoinColumn
+    @ManyToOne
+    private ShowEntity showEntity;
 
 }

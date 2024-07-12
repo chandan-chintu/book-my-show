@@ -4,6 +4,7 @@ package com.application.demo.book_my_show.entity;
 import com.application.demo.book_my_show.enums.SeatType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -12,6 +13,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class TheaterSeatEntity {
 
     @Id
@@ -22,4 +24,8 @@ public class TheaterSeatEntity {
     private SeatType seatType;
 
     private String seatNo;
+
+    @JoinColumn
+    @ManyToOne
+    private TheaterEntity theaterEntity;
 }

@@ -4,14 +4,19 @@ import com.application.demo.book_my_show.enums.Genre;
 import com.application.demo.book_my_show.enums.Language;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "movies")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class MovieEntity {
 
     @Id
@@ -30,4 +35,8 @@ public class MovieEntity {
 
     @Enumerated(value = EnumType.STRING)
     private Genre genre;
+
+    // this is parent wrt to shows
+    @OneToMany(mappedBy = "movieEntity", cascade = CascadeType.ALL)
+    private List<ShowEntity> listOfShows = new ArrayList<>();
 }
