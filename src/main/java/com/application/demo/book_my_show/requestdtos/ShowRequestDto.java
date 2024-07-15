@@ -18,6 +18,6 @@ public class ShowRequestDto {
 
     private double classicSeatPrice;
 
-    private double premiunSeatPrice;
+    private double premiumSeatPrice;
 
 }
