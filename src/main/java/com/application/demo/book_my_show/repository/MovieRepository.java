@@ -14,4 +14,6 @@ public interface MovieRepository extends JpaRepository<MovieEntity,Integer> {
     public MovieEntity findByMovieName(String movieName);
 
     public List<MovieEntity> findByLanguage(Language language);
+
+
 }

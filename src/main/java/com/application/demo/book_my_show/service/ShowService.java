@@ -3,6 +3,7 @@ package com.application.demo.book_my_show.service;
 import com.application.demo.book_my_show.convertors.ShowConvertor;
 import com.application.demo.book_my_show.entity.*;
 import com.application.demo.book_my_show.enums.SeatType;
+import com.application.demo.book_my_show.enums.ShowType;
 import com.application.demo.book_my_show.repository.MovieRepository;
 import com.application.demo.book_my_show.repository.ShowRepository;
 import com.application.demo.book_my_show.repository.TheaterRepository;
@@ -82,5 +83,10 @@ public class ShowService {
             showSeatEntityList.add(showSeatEntity);
         }
         return showSeatEntityList;
+    }
+
+    public List<ShowEntity> getShowByShowType(ShowType showType){
+        List<ShowEntity> showEntities = showRepository.getShowByShowType(showType);
+        return showEntities;
     }
 }

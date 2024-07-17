@@ -90,7 +90,7 @@ public class TicketService {
 
         MimeMessage mimeMessage = javaMailSender.createMimeMessage();
         MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage, true);
-        mimeMessageHelper.setFrom("backendacciojob@gmail.com");
+        mimeMessageHelper.setFrom("acciojob123@gmail.com");
         mimeMessageHelper.setTo(userEntity.getEmail());
         mimeMessageHelper.setText(bodyMail);
         mimeMessageHelper.setSubject("Confirming your booked tickets!");
@@ -126,5 +126,10 @@ public class TicketService {
             }
         }
         return true; // seats are available
+    }
+
+    public List<TicketEntity> getTicketsByPriceLessThan500(){
+        List<TicketEntity>  ticketEntityList = ticketRepository.getTicketsByPriceLessThan500();
+        return ticketEntityList;
     }
 }
